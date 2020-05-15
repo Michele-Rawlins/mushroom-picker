@@ -24,4 +24,4 @@ class Forest extends React.Component {
   }
 }
 
-export default { Forest };
+export default Forest;
