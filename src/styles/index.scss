@@ -2,5 +2,9 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 body {
-  background-color: $favColor;
+  background: url('https://images.unsplash.com/photo-1505567745926-ba89000d255a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60') no-repeat center center fixed;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  background-size: cover;
 }
