@@ -22,6 +22,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h2>Mushrooms</h2>
+        <button className="mushroom-picker">Pick a Mushroom</button>
         <Forest mushrooms={mushrooms}/>
         </div>
     );
