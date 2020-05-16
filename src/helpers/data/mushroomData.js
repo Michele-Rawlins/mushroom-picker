@@ -167,19 +167,6 @@ const mushrooms = [
     isPsychedelic: false,
   },
   {
-    id: 'mushroom13',
-    name: 'Porcini',
-    // eslint-disable-next-line max-len
-    description: 'This mushroom is sold both fresh and dried.  It is prized in French and Italian cuisine.  They grow naturally in pine forest at the base of the trees.',
-    imgUrl: 'https://images.unsplash.com/photo-1573596080648-8fa6467a6df0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
-    isMagic: false,
-    isPoisonous: false,
-    isDeadly: false,
-    isFood: true,
-    isNormal: true,
-    isPsychedelic: false,
-  },
-  {
     id: 'mushroom14',
     name: 'Shaggy Ink Cap',
     // eslint-disable-next-line max-len
@@ -272,15 +259,40 @@ const mushrooms = [
   },
 ];
 
-const basket = [];
+
+let basket = [];
+
+const removeMushrooms = () => {
+  basket = [];
+};
+const addMushrooms = () => {
+  const twoMushrooms = mushrooms[mushrooms.length + 2];
+  return twoMushrooms;
+};
+const removeTwoMushrooms = () => {
+  if (basket.length < 2) {
+    (basket.splice(0, 1));
+  } else {
+    (basket.splice(0, 2));
+  }
+};
 
 const getBasket = () => basket;
 
 const getMushrooms = () => mushrooms;
 
-const pickAMushroom = (obj) => {
-  const mushkeys = Object.keys(obj);
-  return mushkeys[Math.floor(Math.random() * mushkeys.length)];
+const pickAMushroom = () => {
+  const mushroomPicked = mushrooms[Math.floor(Math.random() * mushrooms.length)];
+  console.error('mushroompicked', mushroomPicked);
+  if (mushrooms.isPoisonous) {
+    removeTwoMushrooms();
+    //  }else if (mushrooms.isDeadly) {
+    //     removeMushrooms();
+    //   } else if (mushrooms.isMagic) {
+    //     addMushrooms();
+  } else {
+    basket.push(mushroomPicked);
+  }
 };
 
 export default { getMushrooms, getBasket, pickAMushroom };
