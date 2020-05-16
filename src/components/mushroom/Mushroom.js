@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import mushroomShape from '../../helpers/propz/mushroomShape';
 
 import './Mushroom.scss';

@@ -3,27 +3,44 @@ import './App.scss';
 
 import mushroomData from '../helpers/data/mushroomData';
 import Forest from '../components/Forest/Forest';
-import mushroomShape from '../helpers/propz/mushroomShape';
+import Basket from '../components/Basket/Basket';
+
 
 class App extends React.Component {
   state = {
     mushrooms: [],
-    mushroom: mushroomShape.mushroomShape,
+    basket: [],
+
   }
 
   componentDidMount() {
     const mushrooms = mushroomData.getMushrooms();
-    this.setState({ mushrooms });
+    const basket = mushroomData.getBasket();
+    this.setState({ mushrooms, basket });
   }
 
-  render() {
-    const { mushrooms } = this.state;
+  pickMushroomEvent = (e) => {
+    e.preventDefault();
+    mushroomData.pickAMushroom();
+    const basket = mushroomData.getBasket();
+    this.setState({ basket });
+  }
 
+
+  render() {
+    const { mushrooms, basket } = this.state;
     return (
       <div className="App">
-        <h2>Mushrooms</h2>
-        <button className="mushroom-picker">Pick a Mushroom</button>
+       <h2>Mushrooms</h2>
+        <button className="mushroom-picker" onClick={this.pickMushroomEvent}>Pick a Mushroom</button>
+        <div className ="row">
+          <div className="col-6">
         <Forest mushrooms={mushrooms}/>
+        </div>
+        <div className="col-6">
+        <Basket mushrooms={basket}/>
+        </div>
+        </div>
         </div>
     );
   }
