@@ -16,8 +16,8 @@ class Basket extends React.Component {
       <Mushroom key = {`pickedMushroom${i + 1}`} mushroom={mushroom}/>
     ));
     return (
-<div className="Basket d-flex flew-wrap col-3">
-  <div className="basket-title">Basket</div>
+<div className="Basket d-flex flew-wrap">
+  <h2 className="basket-title">Basket</h2>
   { makeBasket }
 </div>
 
