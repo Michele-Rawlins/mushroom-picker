@@ -34,10 +34,10 @@ class App extends React.Component {
        <h2>Mushrooms</h2>
         <button className="mushroom-picker" onClick={this.pickMushroomEvent}>Pick a Mushroom</button>
         <div className ="row">
-          <div className="col-6">
+          <div className="col-md-8">
         <Forest mushrooms={mushrooms}/>
         </div>
-        <div className="col-6">
+        <div className="col-md-4">
         <Basket mushrooms={basket}/>
         </div>
         </div>

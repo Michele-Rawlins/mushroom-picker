@@ -284,7 +284,7 @@ const getMushrooms = () => mushrooms;
 const pickAMushroom = () => {
   const mushroomPicked = mushrooms[Math.floor(Math.random() * mushrooms.length)];
   console.error('mushroompicked', mushroomPicked);
-  if (mushrooms.isPoisonous) {
+  if (mushrooms.isPoisonous === true) {
     removeTwoMushrooms();
     //  }else if (mushrooms.isDeadly) {
     //     removeMushrooms();
