@@ -19,11 +19,18 @@ class App extends React.Component {
     this.setState({ mushrooms, basket });
   }
 
+  checkBasket = () => {
+    const mushroomTypes = mushroomData.getMushroomType();
+    this.setState({ mushroomTypes });
+  }
+
+
   pickMushroomEvent = (e) => {
     e.preventDefault();
     mushroomData.pickAMushroom();
     const basket = mushroomData.getBasket();
     this.setState({ basket });
+    this.checkBasket();
   }
 
 
@@ -33,8 +40,8 @@ class App extends React.Component {
       <div className="App">
        <h2>Mushrooms</h2>
         <button className="mushroom-picker" onClick={this.pickMushroomEvent}>Pick a Mushroom</button>
-        <div className ="row">
-          <div className="col-md-8">
+        <div className="row">
+        <div className="col-md-8">
         <Forest mushrooms={mushrooms}/>
         </div>
         <div className="col-md-4">
@@ -45,5 +52,6 @@ class App extends React.Component {
     );
   }
 }
+
 
 export default App;

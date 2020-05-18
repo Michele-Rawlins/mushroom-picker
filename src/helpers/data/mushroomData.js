@@ -7,9 +7,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
-    isFood: true,
-    isNormal: true,
-    isPsychedelic: false,
   },
   {
     id: 'mushroom2',
@@ -19,9 +16,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
-    isFood: true,
-    isNormal: true,
-    isPsychedelic: false,
   },
   {
     id: 'mushroom3',
@@ -31,9 +25,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
-    isFood: true,
-    isNormal: true,
-    isPsychedelic: false,
   },
   {
     id: 'mushroom4',
@@ -44,9 +35,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
-    isFood: true,
-    isNormal: true,
-    isPsychedelic: false,
   },
   {
     id: 'mushroom5',
@@ -57,9 +45,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
-    isFood: true,
-    isNormal: true,
-    isPsychedelic: false,
   },
   {
     id: 'mushroom6',
@@ -70,9 +55,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: true,
     isDeadly: false,
-    isFood: false,
-    isNormal: false,
-    isPsychedelic: false,
   },
   {
     id: 'mushroom7',
@@ -84,9 +66,6 @@ const mushrooms = [
     isMagic: true,
     isPoisonous: false,
     isDeadly: false,
-    isFood: true,
-    isNormal: false,
-    isPsychedelic: true,
   },
   {
     id: 'mushroom8',
@@ -97,9 +76,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
-    isFood: false,
-    isNormal: true,
-    isPsychedelic: false,
   },
   {
     id: 'mushroom9',
@@ -110,9 +86,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: true,
     isDeadly: false,
-    isFood: false,
-    isNormal: false,
-    isPsychedelic: false,
   },
   {
     id: 'mushroom10',
@@ -123,9 +96,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
-    isFood: false,
-    isNormal: true,
-    isPsychedelic: false,
   },
   {
     id: 'mushroom11',
@@ -136,9 +106,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: true,
     isDeadly: true,
-    isFood: false,
-    isNormal: true,
-    isPsychedelic: false,
   },
   {
     id: 'mushroom12',
@@ -149,9 +116,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
-    isFood: true,
-    isNormal: true,
-    isPsychedelic: false,
   },
   {
     id: 'mushroom13',
@@ -162,9 +126,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
-    isFood: true,
-    isNormal: true,
-    isPsychedelic: false,
   },
   {
     id: 'mushroom14',
@@ -175,9 +136,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
-    isFood: true,
-    isNormal: true,
-    isPsychedelic: false,
   },
   {
     id: 'mushroom15',
@@ -188,9 +146,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
-    isFood: true,
-    isNormal: true,
-    isPsychedelic: false,
   },
   {
     id: 'mushroom16',
@@ -201,9 +156,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: true,
     isDeadly: false,
-    isFood: false,
-    isNormal: false,
-    isPsychedelic: false,
   },
   {
     id: 'mushroom17',
@@ -214,9 +166,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
-    isFood: false,
-    isNormal: false,
-    isPsychedelic: true,
   },
   {
     id: 'mushroom18',
@@ -227,9 +176,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
-    isFood: false,
-    isNormal: false,
-    isPsychedelic: true,
   },
   {
     id: 'mushroom19',
@@ -240,9 +186,6 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
-    isFood: false,
-    isNormal: false,
-    isPsychedelic: true,
   },
   {
     id: 'mushroom20',
@@ -253,28 +196,34 @@ const mushrooms = [
     isMagic: false,
     isPoisonous: false,
     isDeadly: false,
-    isFood: true,
-    isNormal: true,
-    isPsychedelic: false,
   },
 ];
 
 
 let basket = [];
 
-const removeMushrooms = () => {
-  basket = [];
+const getMushroomType = () => {
+  const mushroomTypes = basket.map((mushroom) => mushroom.name);
+  return mushroomTypes;
 };
-const addMushrooms = () => {
-  const twoMushrooms = mushrooms[mushrooms.length + 2];
-  return twoMushrooms;
-};
+
+// const removeMushrooms = () => {
+//   basket = [];
+// };
+// const addMushrooms = () => {
+//   const twoMushrooms = mushrooms[mushrooms.length + 2];
+//   return twoMushrooms;
+// };
 const removeTwoMushrooms = () => {
+  basket = getBasket();
   if (basket.length < 2) {
     (basket.splice(0, 1));
+    alert('You picked a poisonous mushroom!!  Lose one Mushroom!');
   } else {
     (basket.splice(0, 2));
+    alert('You just picked a poisonous Mushroon!!!  Lose two Mushrooms!!!');
   }
+  return basket();
 };
 
 const getBasket = () => basket;
@@ -284,10 +233,11 @@ const getMushrooms = () => mushrooms;
 const pickAMushroom = () => {
   const mushroomPicked = mushrooms[Math.floor(Math.random() * mushrooms.length)];
   console.error('mushroompicked', mushroomPicked);
-  if (mushrooms.isPoisonous === true) {
+  if (mushrooms.isPoisonous) {
+    alert('You have picked a poisonous mushroom!!  You lose two mushrooms!!');
     removeTwoMushrooms();
-    //  }else if (mushrooms.isDeadly) {
-    //     removeMushrooms();
+  // } else if (mushrooms.isDeadly) {
+  //   removeMushrooms(mushroomPicked);
     //   } else if (mushrooms.isMagic) {
     //     addMushrooms();
   } else {
@@ -295,4 +245,9 @@ const pickAMushroom = () => {
   }
 };
 
-export default { getMushrooms, getBasket, pickAMushroom };
+export default {
+  getMushrooms,
+  getBasket,
+  pickAMushroom,
+  getMushroomType,
+};
