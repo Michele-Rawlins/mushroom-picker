@@ -202,14 +202,19 @@ const mushrooms = [
 
 let basket = [];
 
-const removeMushrooms = () => {
-  basket = [];
+const getMushroomType = () => {
+  const mushroomTypes = basket.map((mushroom) => mushroom.name);
+  return mushroomTypes;
 };
-const addMushrooms = () => {
-  const twoMushrooms = mushrooms[mushrooms.length + 2];
-  return twoMushrooms;
-};
-const removeTwoMushrooms = (mushroomPicked) => {
+
+// const removeMushrooms = () => {
+//   basket = [];
+// };
+// const addMushrooms = () => {
+//   const twoMushrooms = mushrooms[mushrooms.length + 2];
+//   return twoMushrooms;
+// };
+const removeTwoMushrooms = () => {
   basket = getBasket();
   if (basket.length < 2) {
     (basket.splice(0, 1));
@@ -218,7 +223,7 @@ const removeTwoMushrooms = (mushroomPicked) => {
     (basket.splice(0, 2));
     alert('You just picked a poisonous Mushroon!!!  Lose two Mushrooms!!!');
   }
-  return basket;
+  return basket();
 };
 
 const getBasket = () => basket;
@@ -229,9 +234,10 @@ const pickAMushroom = () => {
   const mushroomPicked = mushrooms[Math.floor(Math.random() * mushrooms.length)];
   console.error('mushroompicked', mushroomPicked);
   if (mushrooms.isPoisonous) {
-    removeTwoMushrooms(mushroomPicked);
-  } else if (mushrooms.isDeadly) {
-    removeMushrooms(mushroomPicked);
+    alert('You have picked a poisonous mushroom!!  You lose two mushrooms!!');
+    removeTwoMushrooms();
+  // } else if (mushrooms.isDeadly) {
+  //   removeMushrooms(mushroomPicked);
     //   } else if (mushrooms.isMagic) {
     //     addMushrooms();
   } else {
@@ -239,4 +245,9 @@ const pickAMushroom = () => {
   }
 };
 
-export default { getMushrooms, getBasket, pickAMushroom };
+export default {
+  getMushrooms,
+  getBasket,
+  pickAMushroom,
+  getMushroomType,
+};

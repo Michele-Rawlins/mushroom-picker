@@ -19,11 +19,18 @@ class App extends React.Component {
     this.setState({ mushrooms, basket });
   }
 
+  checkBasket = () => {
+    const mushroomTypes = mushroomData.getMushroomType();
+    this.setState({ mushroomTypes });
+  }
+
+
   pickMushroomEvent = (e) => {
     e.preventDefault();
     mushroomData.pickAMushroom();
     const basket = mushroomData.getBasket();
     this.setState({ basket });
+    this.checkBasket();
   }
 
 
@@ -45,5 +52,6 @@ class App extends React.Component {
     );
   }
 }
+
 
 export default App;
