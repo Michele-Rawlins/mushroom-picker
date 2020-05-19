@@ -20,8 +20,12 @@ class App extends React.Component {
   }
 
   checkBasket = () => {
+    console.error('test', this.state.basket);
     const mushroomTypes = mushroomData.getMushroomType();
     this.setState({ mushroomTypes });
+    if (this.state.basket.length > 5) {
+      alert('You are a winner!!!!');
+    }
   }
 
 

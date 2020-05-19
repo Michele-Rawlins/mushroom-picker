@@ -104,7 +104,7 @@ const mushrooms = [
     description: 'Perhaps the deadliest of all mushrooms, within 6 to 12 hours after being ingested, violent abdobimal pain, vomiting, bloody diarrhea and loss of fluids from tissues.  Most notable deaths caused are Pope Clement in 1534 and Roman Emperor Claudius in 54CE.',
     imgUrl: 'https://cdn.britannica.com/s:800x1000/79/145379-050-4461FF66/Death-cap-mushroom.jpg',
     isMagic: false,
-    isPoisonous: true,
+    isPoisonous: false,
     isDeadly: true,
   },
   {
@@ -212,10 +212,14 @@ const removeMushrooms = () => {
   alert('You picked a deadly mushroom!!!  RIP!!!');
 };
 
-// const addMushrooms = () => {
-//   const twoMushrooms = mushrooms[mushrooms.length + 2];
-//   return twoMushrooms;
-// };
+const addMushrooms = () => {
+  mushrooms.forEach((mushroom) => {
+    if (mushroom.isDeadly === false && mushroom.isPoisonous === false && mushroom.isMagic === false) {
+      basket.push(mushroom);
+    }
+  });
+  alert('You have picked a magic mushroom, you gain two mushrooms!!  Happy tripping!!');
+};
 
 const removeTwoMushrooms = () => {
   basket = getBasket();
@@ -237,11 +241,11 @@ const pickAMushroom = () => {
   console.error('mushroompicked', mushroomPicked);
   if (mushroomPicked.isPoisonous === true) {
     // alert('You have picked a poisonous mushroom!!  You lose two mushrooms!!');
-    removeTwoMushrooms(mushroomPicked);
+    removeTwoMushrooms();
   } else if (mushroomPicked.isDeadly === true) {
-    removeMushrooms(mushroomPicked);
-    //   } else if (mushrooms.isMagic) {
-    //     addMushrooms();
+    removeMushrooms();
+  } else if (mushroomPicked.isMagic) {
+    addMushrooms();
   } else {
     basket.push(mushroomPicked);
   }
