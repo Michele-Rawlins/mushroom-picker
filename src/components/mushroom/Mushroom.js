@@ -20,9 +20,6 @@ class Mushroom extends React.Component {
           <h5 className="card-title"> {mushroom.name}</h5>
           <p className="card-description"> {mushroom.description}</p>
       </div>
-      <div className="card-footer">
-        <button className="btn btn-dark">View Mushroom</button>
-      </div>
       </div>
       </div>
     );
